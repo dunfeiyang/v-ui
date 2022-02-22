@@ -2,7 +2,6 @@
   <button :class="{ checked: value }" class="switch" @click="toggle">
     <span></span>
   </button>
-  <div>{{ value }}</div>
 </template>
 
 <script lang="ts">
