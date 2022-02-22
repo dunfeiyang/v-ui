@@ -1,5 +1,5 @@
 <template>
-  <Button>你好</Button>
+  <Button>你好1</Button>
 </template>
 
 <script lang="ts">
