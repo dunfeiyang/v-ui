@@ -4,12 +4,19 @@
 
 <script lang="ts">
 import { provide, ref } from "vue";
+import { router } from "./router";
 export default {
   name: "App",
   setup() {
     const width = document.documentElement.clientWidth;
-    const menuVisible = ref(width <= 500 ? false : true);
+    const isMobile = width <= 500;
+    const menuVisible = ref(isMobile ? false : true);
     provide("menuVisible", menuVisible);
+    router.afterEach(() => {
+      if (isMobile) {
+        menuVisible.value = false;
+      }
+    });
   },
 };
 </script>

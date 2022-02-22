@@ -1,10 +1,6 @@
 <template>
-  <div>
+  <div class="layout">
     <Topnav />
-    <div class="topnav">
-      <div class="logo"></div>
-      <div class="menu"></div>
-    </div>
 
     <div class="content">
       <aside v-if="menuVisible">
@@ -24,7 +20,7 @@
           </li>
         </ol>
       </aside>
-      <main>内容</main>
+      <main><router-view></router-view></main>
     </div>
   </div>
 </template>
@@ -46,6 +42,33 @@ export default {
 
 <style lang="scss">
 $aside-index: 10;
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  > .nav {
+    flex-shrink: 0;
+  }
+  > .content {
+    flex-grow: 1;
+    padding-top: 60px;
+    padding-left: 156px;
+    @media (max-width: 500px) {
+      padding-left: 0;
+    }
+  }
+}
+.content {
+  display: flex;
+  > aside {
+    flex-shrink: 0;
+  }
+  > main {
+    flex-grow: 1;
+    padding: 16px;
+    background: white;
+  }
+}
 aside {
   background: lightblue;
   width: 150px;
@@ -72,5 +95,8 @@ aside {
       }
     }
   }
+}
+main {
+  overflow: auto;
 }
 </style>
