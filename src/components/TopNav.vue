@@ -1,12 +1,27 @@
 <template>
   <div class="topnav">
-    <div class="logo">LOGO</div>
+    <div class="logo" @click="toggleMenu">LOGO</div>
     <ul class="menu">
       <li>菜单1</li>
       <li>菜单2</li>
     </ul>
   </div>
 </template>
+
+<script lang="ts">
+import { inject, Ref } from "vue";
+export default {
+  setup() {
+    const menuVisible = inject<Ref<boolean>>("xxx");
+    console.log("topnav 获取的menuvisible为" + menuVisible.value);
+    const toggleMenu = () => {
+      menuVisible.value = !menuVisible.value;
+    };
+
+    return { menuVisible, toggleMenu };
+  },
+};
+</script>
 
 <style lang="scss" scoped>
 $color: #007974;
