@@ -25,8 +25,8 @@ export const openDialog = ({ title, content, ok = "", cancel = "" }) => {
           ok: ok ? ok : () => {},
         },
         {
-          title,
-          content,
+          title: () => h("div", {}, title),
+          content: () => h("div", {}, content),
         }
       );
     },
