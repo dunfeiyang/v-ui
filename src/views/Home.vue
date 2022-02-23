@@ -5,7 +5,7 @@
       <h1>vue 3.0 ui</h1>
       <h2>自己学习玩的UI框架</h2>
       <p class="actions">
-        <a href="https://github.com/dunfeiyang">GitHub</a>
+        <a href="https://github.com/dunfeiyang" target="_blank">GitHub</a>
         <router-link to="/doc">开始</router-link>
       </p>
     </div>
