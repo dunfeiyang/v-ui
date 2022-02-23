@@ -1,5 +1,5 @@
 <template>
-  <button class="ui-button" :class="classes" :disabled="disabled">
+  <button class="ui-button" :class="classes" :disabled="disabled || loading">
     <span class="ui-loadingIndicator" v-if="loading"></span>
     <slot />
   </button>
