@@ -1,15 +1,22 @@
 <template>
   <div class="ui-tabs">
-    <div class="ui-tabs-nav">
+    <div class="ui-tabs-nav" ref="container">
       <div
         class="ui-tabs-nav-item"
         :class="{ selected: t === selected }"
         v-for="(t, index) in titles"
         :key="index"
         @click="select(t)"
+        :ref="
+          (el) => {
+            if (el) divs[index] = el;
+          }
+        "
       >
         {{ t }}
       </div>
+
+      <div class="ui-tabs-nav-indicator" ref="indicator"></div>
     </div>
     <div class="ui-tabs-content">
       <component
@@ -22,15 +29,37 @@
 </template>
 
 <script lang="ts">
-import { computed } from "vue";
+import { computed, onMounted, onUpdated, ref } from "vue";
 import Tab from "./Tab.vue";
 export default {
   props: {
     selected: String,
   },
   setup(props, context) {
-    console.log({
-      ...context.slots.default(),
+    const divs = ref<HTMLDivElement[]>([]);
+    const indicator = ref<HTMLDivElement>(null);
+    const container = ref<HTMLDivElement>(null);
+
+    const setStyle = () => {
+      const result = divs.value.find((div) =>
+        div.classList.contains("selected")
+      );
+      const { width } = result.getBoundingClientRect();
+
+      indicator.value.style.width = width + "px";
+      const { left: left1 } = container.value.getBoundingClientRect();
+      const { left: left2 } = result.getBoundingClientRect();
+      const left = left2 - left1;
+
+      indicator.value.style.left = left + "px";
+    };
+
+    onMounted(() => {
+      setStyle();
+    });
+
+    onUpdated(() => {
+      setStyle();
     });
 
     const defaults = context.slots.default();
@@ -57,6 +86,9 @@ export default {
       titles,
       current,
       select,
+      divs,
+      indicator,
+      container,
     };
   },
 };
