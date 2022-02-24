@@ -9,7 +9,7 @@
         @click="select(t)"
         :ref="
           (el) => {
-            if (el) divs[index] = el;
+            if (t === selected) selectedItem = el;
           }
         "
       >
@@ -36,21 +36,16 @@ export default {
     selected: String,
   },
   setup(props, context) {
-    const divs = ref<HTMLDivElement[]>([]);
+    const selectedItem = ref<HTMLDivElement>(null);
     const indicator = ref<HTMLDivElement>(null);
     const container = ref<HTMLDivElement>(null);
 
     const setStyle = () => {
-      const result = divs.value.find((div) =>
-        div.classList.contains("selected")
-      );
-      const { width } = result.getBoundingClientRect();
-
-      indicator.value.style.width = width + "px";
+      const { width, left: left2 } = selectedItem.value.getBoundingClientRect();
       const { left: left1 } = container.value.getBoundingClientRect();
-      const { left: left2 } = result.getBoundingClientRect();
       const left = left2 - left1;
 
+      indicator.value.style.width = width + "px";
       indicator.value.style.left = left + "px";
     };
 
@@ -86,7 +81,7 @@ export default {
       titles,
       current,
       select,
-      divs,
+      selectedItem,
       indicator,
       container,
     };
