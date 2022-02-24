@@ -1,6 +1,10 @@
 <template>
   <div class="topnav">
-    <div class="logo">LOGO</div>
+    <div class="logo">
+      <svg class="icon" aria-hidden="true">
+        <use xlink:href="#icon-hello"></use>
+      </svg>
+    </div>
     <ul class="menu">
       <li></li>
       <li></li>
