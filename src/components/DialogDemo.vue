@@ -1,5 +1,6 @@
 <template>
   <h1>示例1</h1>
+  <h1>标签形式Dialogs</h1>
   <Button @click="toggle">toggle</Button>
   <Dialog v-model:visible="x" :ok="f1" :cancel="f2">
     <template #title>
@@ -11,7 +12,8 @@
     </template>
   </Dialog>
 
-  <h1>示例2 打开dialog</h1>
+  <h1>示例2</h1>
+  <h2>js方法打开dialog</h2>
   <Button @click="showDialog">show</Button>
 </template>
 
