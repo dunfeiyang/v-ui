@@ -29,7 +29,7 @@
 </template>
 
 <script lang="ts">
-import { computed, onMounted, onUpdated, ref, watchEffect } from "vue";
+import { computed, onMounted, ref, watchEffect } from "vue";
 import Tab from "./Tab.vue";
 export default {
   props: {
@@ -41,7 +41,6 @@ export default {
     const container = ref<HTMLDivElement>(null);
 
     const setStyle = () => {
-      if (!selectedItem.value || !container.value) return;
       const { width, left: left2 } = selectedItem.value.getBoundingClientRect();
       const { left: left1 } = container.value.getBoundingClientRect();
       const left = left2 - left1;
@@ -49,8 +48,9 @@ export default {
       indicator.value.style.width = width + "px";
       indicator.value.style.left = left + "px";
     };
-
-    watchEffect(setStyle);
+    onMounted(() => {
+      watchEffect(setStyle);
+    });
 
     const defaults = context.slots.default();
 
@@ -68,8 +68,6 @@ export default {
     const select = (title: string) => {
       context.emit("update:selected", title);
     };
-
-    console.log(defaults[0].type === Tab);
 
     return {
       defaults,
