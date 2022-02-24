@@ -1,21 +1,30 @@
 <template>
   <div class="topnav">
-    <div class="logo">
+    <router-link to="/" class="logo">
       <svg class="icon" aria-hidden="true">
         <use xlink:href="#icon-hello"></use>
       </svg>
-    </div>
+    </router-link>
     <ul class="menu">
       <li></li>
       <li></li>
     </ul>
-    <span class="toggleAside" @click="toggleMenu"></span>
+
+    <svg class="toggleAside icon" @click="toggleMenu" v-if="toggleVisible">
+      <use xlink:href="#icon-menu"></use>
+    </svg>
   </div>
 </template>
 
 <script lang="ts">
 import { inject, Ref } from "vue";
 export default {
+  props: {
+    toggleVisible: {
+      type: Boolean,
+      default: false,
+    },
+  },
   setup() {
     const menuVisible = inject<Ref<boolean>>("menuVisible");
     const toggleMenu = () => {
@@ -64,7 +73,6 @@ $color: #007974;
     top: 50%;
     transform: translateY(-50%);
     display: none;
-    background: fade-out(black, 0.9);
   }
   @media (max-width: 500px) {
     > .menu {

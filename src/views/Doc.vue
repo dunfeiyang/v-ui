@@ -1,6 +1,6 @@
 <template>
   <div class="layout">
-    <Topnav />
+    <Topnav toggleVisible class="nav" />
 
     <div class="content">
       <aside v-if="menuVisible">
@@ -70,7 +70,7 @@ $aside-index: 10;
   }
 }
 aside {
-  background: lightblue;
+  background: #fff;
   width: 150px;
   padding: 16px 0;
   position: fixed;
