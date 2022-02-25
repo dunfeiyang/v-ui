@@ -66,7 +66,7 @@ $color: #1c1c1c;
   box-shadow: 0 1px 0 fade-out(black, 0.95);
 }
 .features {
-  margin: 64px auto;
+  margin: 10px auto;
   padding: 0 16px;
   @media (min-width: 800px) {
     width: 800px;
@@ -116,7 +116,7 @@ $color: #1c1c1c;
 }
 .banner {
   color: $color;
-  padding: 100px 0;
+  padding: 30px 0;
   display: flex;
   justify-content: center;
   align-items: center;
