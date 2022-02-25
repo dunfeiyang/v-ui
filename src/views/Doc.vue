@@ -8,7 +8,6 @@
           <li>
             <router-link to="/doc/intro">介绍</router-link>
             <router-link to="/doc/install">安装</router-link>
-            <router-link to="/doc/start">开始</router-link>
           </li>
         </ol>
         <h2>组件列表</h2>
