@@ -53,8 +53,8 @@ export default {
     });
 
     const defaults = context.slots.default();
-
-    const checkChild = defaults.some((tag) => tag.type !== Tab);
+    //@ts-ignore
+    const checkChild = defaults.some((tag) => tag.type.name !== Tab.name);
     if (checkChild) {
       throw new Error("Tabs 子组件必须是 Tab");
     }
