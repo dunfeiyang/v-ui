@@ -1,4 +1,5 @@
 rm -rf dist &&
+yarn &&
 yarn build &&
 cd dist &&
 git init &&
