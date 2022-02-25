@@ -827,6 +827,11 @@ get-stream@^5.0.0:
   dependencies:
     pump "^3.0.0"
 
+github-markdown-css@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.npmmirror.com/github-markdown-css/-/github-markdown-css-5.1.0.tgz#a96281cd90a8969e3c13b9d3ca6a733a523a00a6"
+  integrity sha512-QLtORwHHtUHhPMHu7i4GKfP6Vx5CWZn+NKQXe+cBhslY1HEt0CTEkP4d/vSROKV0iIJSpl4UtlQ16AD8C6lMug==
+
 glob-parent@^5.1.2, glob-parent@~5.1.2:
   version "5.1.2"
   resolved "https://registry.npmmirror.com/glob-parent/-/glob-parent-5.1.2.tgz#869832c58034fe68a4093c17dc15e8340d8401c4"
@@ -1477,6 +1482,11 @@ postcss@^8.1.10:
     nanoid "^3.2.0"
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
+
+prismjs@^1.27.0:
+  version "1.27.0"
+  resolved "https://registry.npmmirror.com/prismjs/-/prismjs-1.27.0.tgz#bb6ee3138a0b438a3653dd4d6ce0cc6510a45057"
+  integrity sha512-t13BGPUlFDR7wRB5kQDG4jjl7XeuH6jbJGt11JHPL96qwsEHNX2+68tFXqc1/k+/jALsbSWJKUOT/hcYAZ5LkA==
 
 pump@^3.0.0:
   version "3.0.0"

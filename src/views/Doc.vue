@@ -4,6 +4,13 @@
 
     <div class="content">
       <aside v-if="menuVisible">
+        <ol>
+          <li>
+            <router-link to="/doc/intro">介绍</router-link>
+            <router-link to="/doc/install">安装</router-link>
+            <router-link to="/doc/start">开始</router-link>
+          </li>
+        </ol>
         <h2>组件列表</h2>
         <ol>
           <li>
@@ -42,6 +49,7 @@ export default {
 
 <style lang="scss">
 $aside-index: 10;
+
 .layout {
   display: flex;
   flex-direction: column;
@@ -91,7 +99,8 @@ aside {
         text-decoration: none;
       }
       .router-link-active {
-        background: white;
+        background: #d9d2c9;
+        color: #fff;
       }
     }
   }

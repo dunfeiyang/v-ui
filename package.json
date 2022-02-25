@@ -6,13 +6,15 @@
     "build": "vite build"
   },
   "dependencies": {
+    "github-markdown-css": "^5.1.0",
+    "prismjs": "^1.27.0",
     "vue": "^3.0.0-rc.1",
     "vue-router": "4.0.12"
   },
   "devDependencies": {
     "@vue/compiler-sfc": "^3.0.0-rc.1",
-    "vite": "^1.0.0-rc.1",
-    "sass": "^1.49.8"
+    "sass": "^1.49.8",
+    "vite": "^1.0.0-rc.1"
   },
   "license": "ISC"
 }
